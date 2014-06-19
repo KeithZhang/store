@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/test"/>
+	    <property name="username" value="test"/>
+	    <property name="password" value=""/>
+    </bean>
+  
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+	    <property name="configLocations" value="classpath*:/META-INF/sqlmap.xml"/>
+	    <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <!-- mysql
+     <bean id="mysqlDataSource" class="org.apache.commons.dbcp.ManagedBasicDataSource"
+          destroy-method="close">
+        <constructor-arg value="com.ofpay:name=mysqldb"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306"/>
+        <property name="username" value="test"/>
+        <property name="password" value=""/>
+        <property name="initialSize" value="${app.mysql.poolSize}"/>
+        <property name="maxActive" value="${app.mysql.maxPoolSize}"/>
+        <property name="maxIdle" value="${app.mysql.maxPoolSize}"/>
+        <property name="minIdle" value="${app.mysql.minPoolSize}" />
+        <property name="maxWait" value="${app.mysql.maxWait}" />
+        <property name="defaultAutoCommit" value="true"/>
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="180" />
+         -->
+        <!--<property name="connectionProperties" value="clientEncoding=UTF-8"/> -->
+        <!--<property name="testWhileIdle" value="true"/> -->
+        <!--<property name="testOnBorrow" value="false"/> -->
+        <!--<property name="testOnReturn" value="false"/> -->
+        <!-- 
+        <property name="validationQuery" value="select 1 from dual" />
+        <property name="validationQueryTimeout" value="1000" />
+        <property name="timeBetweenEvictionRunsMillis" value="120000" />
+        <property name="numTestsPerEvictionRun" value="5" />
+    </bean>
+     -->
+    
+    <bean id="userDao" class="org.store.dao.impl.UserDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient"/>
+    </bean>
+    
+</beans>

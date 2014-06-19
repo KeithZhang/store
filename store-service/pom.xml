@@ -5,8 +5,17 @@
   <parent>
     <groupId>com.keepwalking</groupId>
     <artifactId>store</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${store.version}</version>
   </parent>
   <artifactId>store-service</artifactId>
   <name>store-service</name>
+  <packaging>jar</packaging>
+  
+  <dependencies>
+    <dependency>
+        <groupId>com.keepwalking</groupId>
+	    <artifactId>store-dao</artifactId>
+	    <version>${store.version}</version>
+    </dependency>
+  </dependencies>
 </project>

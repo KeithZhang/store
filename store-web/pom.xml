@@ -5,12 +5,19 @@
   <parent>
     <groupId>com.keepwalking</groupId>
     <artifactId>store</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${store.version}</version>
   </parent>
   <artifactId>store-web</artifactId>
   <packaging>war</packaging>
-  <name>store-web Maven Webapp</name>
+  <name>store-web</name>
   <build>
     <finalName>store-web</finalName>
   </build>
+  <dependencies>
+    <dependency>
+        <groupId>com.keepwalking</groupId>
+        <artifactId>store-service</artifactId>
+        <version>${store.version}</version>
+    </dependency>
+  </dependencies>
 </project>

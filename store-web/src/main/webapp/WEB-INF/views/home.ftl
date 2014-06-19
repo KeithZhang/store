@@ -8,7 +8,7 @@
 </head>
 <body>
     home
-    --${rc.contextPath}
-    -${rc.requestUri}
+    
+    ---password------>${password}
 </body>
 </html>
