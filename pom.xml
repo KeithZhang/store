@@ -217,5 +217,6 @@
     <module>store-web</module>
     <module>store-dao</module>
     <module>store-service</module>
+    <module>store-common</module>
   </modules>
 </project>
