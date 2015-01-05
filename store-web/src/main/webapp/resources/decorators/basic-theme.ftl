@@ -67,6 +67,7 @@
     
             <div class="row-fluid">
                 <div class="span12">
+                    看的
                 </div>
             </div>
         </div>
