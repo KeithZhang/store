@@ -22,6 +22,8 @@ public class HomeController {
     
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private UserDao userDao2;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -40,8 +42,9 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		User user = userDao.getAccount("keith");
+		User user2 = userDao2.getAccount("keith");
 		
-		model.addAttribute("password", user.getPassword());
+		model.addAttribute("password", user.getPassword() + ",user2:" + user2.getPassword());
 		
 		return "home";
 	}

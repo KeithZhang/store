@@ -44,7 +44,7 @@
     </bean>
      -->
     
-    <bean id="userDao" class="org.store.dao.impl.UserDaoImpl">
+    <bean id="userDao2" class="org.store.dao.impl.UserDaoImpl">
         <property name="sqlMapClient" ref="sqlMapClient"/>
     </bean>
     
